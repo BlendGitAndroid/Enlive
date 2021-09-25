@@ -2,3 +2,4 @@ rootProject.name = "Enlive"
 include ':app'
 include ':base'
 include ':launcher'
+includeBuild("version")
