@@ -1,0 +1,2 @@
+rootProject.name = "Enlive"
+include ':app'
