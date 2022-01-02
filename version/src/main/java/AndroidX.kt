@@ -1,16 +1,24 @@
 object AndroidX {
 
+    //AndroidX库
     const val appcompat = "androidx.appcompat:appcompat:1.3.0-alpha01"
+    //RecyclerView库
     const val recyclerView = "androidx.recyclerview:recyclerview:1.2.0-alpha03"
+    //Kotlin扩展库
     const val coreKtx = "androidx.core:core-ktx:1.3.2"
+    //Activity扩展库
     const val activityKtx = "androidx.activity:activity-ktx:1.3.0-alpha03"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.4"
     const val cardview = "androidx.cardview:cardview:1.0.0"
     const val multidex = "androidx.multidex:multidex:2.0.1"
+    //Android支持库
     const val legacy = "androidx.legacy:legacy-support-v4:1.0.0"
+    //列表的分页加载
     const val paging = "androidx.paging:paging-runtime-ktx:2.1.2"
     const val viewpager = "androidx.viewpager:viewpager:1.0.0"
+    //读取和写入图片文件 EXIF 标记
     const val exifinterface = "androidx.exifinterface:exifinterface:1.3.2"
+    //注解
     const val annotationVer = "androidx.annotation:annotation:1.2.0-beta01"
 
     val fragment = Fragment
@@ -31,6 +39,7 @@ object AndroidX {
         const val lifecycle_ext = "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
         const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
         const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+        const val runtimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
         const val viewModelSavedState =
             "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
         const val commonJava8 = "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"

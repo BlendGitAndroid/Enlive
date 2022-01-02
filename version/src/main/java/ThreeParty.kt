@@ -8,7 +8,6 @@ object ThreeParty {
     const val permissionSupportByGuoLin = "com.permissionx.guolindev:permission-support:1.4.0"
     const val luBan = "top.zibin:Luban:1.1.8"
     const val sensorDataSdk = "com.sensorsdata.analytics.android:SensorsAnalyticsSDK:5.1.0"
-    val rxhttp = RxHttp
     val tencent = Tencent
     val mdDialog = MdDialog
     val tingYun = TingYun
@@ -21,9 +20,6 @@ object ThreeParty {
 
     //播放Svg 动画   https://github.com/airbnb/lottie-android
     const val LOTTIE = "com.airbnb.android:lottie:3.7.0"
-
-    // utils 集合了大量常用的工具
-    const val UTILCODEX = "com.blankj:utilcodex:1.30.4"
 
     //状态页管理 MultiStatePage
     //https://github.com/Zhao-Yan-Yan/MultiStatePage
@@ -62,10 +58,6 @@ object ThreeParty {
     const val baseRecyclerViewAdapterHelper =
         "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
 
-    //LiveEventBus是一款Android消息总线，基于LiveData，具有生命周期感知能力，支持Sticky，支持AndroidX，支持跨进程，支持跨APP
-    // https://github.com/JeremyLiao/LiveEventBus
-    const val liveEventBus = "com.jeremyliao:live-event-bus-x:1.7.2"
-
     //图片压缩
     const val compressor = "id.zelory:compressor:2.1.0"
 
@@ -82,19 +74,6 @@ object ThreeParty {
     const val easySwipeMenuLayout = "com.github.anzaizai:EasySwipeMenuLayout:1.1.4"
 
     const val ultraViewPager = "com.alibaba.android:ultraviewpager:1.0.7.8"
-
-    object RxHttp {
-        private const val version = "2.5.5"
-
-        // https://github.com/liujingxing/okhttp-RxHttp，
-        const val base = "com.ljx.rxhttp:rxhttp:$version"
-        const val compiler = "com.ljx.rxhttp:rxhttp-compiler:$version"
-
-        //    kapt 'com.ljx.rxhttp:rxhttp-compiler:2.4.1' //生成RxHttp类，纯Java项目，请使用annotationProcessor代替kapt
-        //https://github.com/liujingxing/RxLife-Coroutine
-        //管理协程生命周期，页面销毁，关闭请求
-        const val coroutine = "com.ljx.rxlife:rxlife-coroutine:2.0.1"
-    }
 
     object Tencent {
         const val Bugly = "com.tencent.bugly:crashreport:2.2.0"

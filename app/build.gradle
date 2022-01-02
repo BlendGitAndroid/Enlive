@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'com.blend.version'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -28,6 +29,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    dataBinding {
+        enabled = true
+    }
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -43,6 +47,8 @@ dependencies {
     implementation AndroidX.appcompat
     implementation Google.material
     implementation AndroidX.constraintlayout
+
+    implementation project(path: ':base')
 
     testImplementation Testing.jUnit
     androidTestImplementation Testing.androidJunit

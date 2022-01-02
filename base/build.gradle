@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'com.blend.version'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -19,7 +20,6 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
         dataBinding true
     }
 
@@ -40,12 +40,23 @@ android {
 
 dependencies {
 
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
     implementation AndroidX.coreKtx
     implementation Kotlin.kotlinStdlib
     implementation AndroidX.appcompat
     implementation Google.material
 
+    api AndroidX.lifecyle.viewModelKtx
+    api AndroidX.activityKtx
+    api AndroidX.navigation.fragmentKtx
+    api AndroidX.lifecyle.lifecycle_ext
+    api AndroidX.lifecyle.runtimeKtx
+
     testImplementation Testing.jUnit
     androidTestImplementation Testing.androidJunit
     androidTestImplementation Testing.espresso
+
+    api ThreeParty.OkHttp //rxhttp v2.2.2版本起，需要手动依赖okhttp
+
+
 }
