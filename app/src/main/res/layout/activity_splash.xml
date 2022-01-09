@@ -2,7 +2,7 @@
 <layout>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/ic_splash_logo"
+        android:id="@+id/splash_logo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_splash"

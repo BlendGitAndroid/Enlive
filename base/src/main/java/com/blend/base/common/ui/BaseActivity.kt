@@ -1,8 +1,6 @@
 package com.blend.base.common.ui
 
-import android.app.Activity
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -42,24 +40,6 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewBinding>(var config: Ac
 
     fun initTitleBar() {
 
-    }
-
-    open fun enterFullScreen(activity: Activity) {
-        var flags: Int = View.SYSTEM_UI_FLAG_LOW_PROFILE or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-        flags =
-            flags or (View.SYSTEM_UI_FLAG_LAYOUT_STABLE // 保持View Layout不变，隐藏状态栏或者导航栏后，View不会拉伸。
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN // 让View全屏显示，Layout会被拉伸到StatusBar下面，不包含NavigationBar。
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION // 让View全屏显示，Layout会被拉伸到StatusBar和NavigationBar下面。
-                    or View.SYSTEM_UI_FLAG_FULLSCREEN // Activity全屏显示，且状态栏被隐藏覆盖掉。等同于（WindowManager.LayoutParams.FLAG_FULLSCREEN）。
-                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) // 隐藏虚拟按键(导航栏)。有些手机会用虚拟按键来代替物理按键。
-        // 这个flag只有当设置了SYSTEM_UI_FLAG_HIDE_NAVIGATION才起作用。如果没有设置这个flag，
-        // 任意的View相互动作都退出SYSTEM_UI_FLAG_HIDE_NAVIGATION模式。如果设置就不会退出。
-        flags = flags or (View.SYSTEM_UI_FLAG_IMMERSIVE
-                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
-        val decorView: View = activity.window.decorView
-        if (decorView != null) {
-            decorView.setSystemUiVisibility(flags)
-        }
     }
 
     //布局解析

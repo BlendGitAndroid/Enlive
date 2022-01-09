@@ -23,7 +23,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".main.MainActivity"></activity>
+        <activity
+            android:name=".main.MainActivity"
+            android:theme="@style/SplashTheme" />
 
     </application>
 
