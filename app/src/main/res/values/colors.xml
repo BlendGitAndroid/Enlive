@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+10% — 1A
+20% — 33
+30% — 4D
+40% — 66
+50% — 80
+60% — 99
+70% — B3
+80% — CC
+90% — E6
+-->
 <resources>
-    <color name="purple_200">#AB1F24</color>
-    <color name="purple_500">#F06876</color>
-    <color name="purple_700">#F06876</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="colorPrimary">#AB1F24</color>
+    <color name="colorPrimaryDark">#F06876</color>
+    <color name="colorAccent">#F06876</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- 提示文本色调 -->
+    <color name="app_textHint">#CCCCCC</color>
+    <!-- 文本主色调 -->
+    <color name="app_textTheme">@color/colorPrimary</color>
+
+    <color name="app_tintPrimary">@color/white</color>
 </resources>

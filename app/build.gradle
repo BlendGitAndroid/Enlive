@@ -49,6 +49,7 @@ dependencies {
     implementation AndroidX.constraintlayout
 
     implementation project(path: ':base')
+    implementation ThreeParty.LOTTIE
 
     testImplementation Testing.jUnit
     androidTestImplementation Testing.androidJunit

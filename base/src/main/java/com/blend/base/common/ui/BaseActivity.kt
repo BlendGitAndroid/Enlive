@@ -20,7 +20,7 @@ import java.lang.reflect.Type
 abstract class BaseActivity<VM : BaseViewModel, DB : ViewBinding>(var config: ActivityConfig = ActivityConfig()) :
     AppCompatActivity() {
 
-    protected lateinit var mBinding: ViewBinding
+    protected lateinit var mBinding: DB
     protected lateinit var viewModel: VM
     private var dialog: BaseProgressDialog? = null
 

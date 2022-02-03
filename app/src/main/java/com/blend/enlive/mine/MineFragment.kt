@@ -1,20 +1,18 @@
-package com.blend.enlive.home
+package com.blend.enlive.mine
 
 import android.os.Bundle
 import com.blend.base.common.ui.BaseFragment
 import com.blend.enlive.R
-import com.blend.enlive.databinding.FragmentHomeBinding
+import com.blend.enlive.databinding.FragmentMineBinding
 
 
-class HomeFragment :BaseFragment<HomeViewModel,FragmentHomeBinding>() {
+class MineFragment : BaseFragment<MineViewModel, FragmentMineBinding>() {
 
     override fun layoutId(): Int {
-        return R.layout.fragment_home
+        return R.layout.fragment_mine
     }
 
     override fun initView(savedInstanceState: Bundle?) {
 
     }
-
-
 }

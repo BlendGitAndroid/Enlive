@@ -1,30 +1,39 @@
 package com.blend.enlive.main
 
 import android.os.Bundle
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigator
-import androidx.navigation.fragment.NavHostFragment
 import com.blend.base.common.ui.BaseActivity
 import com.blend.enlive.R
+import com.blend.enlive.account.AccountFragment
+import com.blend.enlive.adapter.setFragmentAdapter
 import com.blend.enlive.databinding.ActivityMainBinding
+import com.blend.enlive.home.HomeFragment
+import com.blend.enlive.main.tab.MAIN_TAB_ACCOUNT
+import com.blend.enlive.main.tab.MAIN_TAB_HOME
+import com.blend.enlive.main.tab.MAIN_TAB_MINE
+import com.blend.enlive.main.tab.MAIN_TAB_PROJECT
+import com.blend.enlive.mine.MineFragment
+import com.blend.enlive.project.ProjectFragment
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
-
-    private lateinit var controller: NavController
 
     override fun layoutId(): Int {
         return R.layout.activity_main
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        controller = findNavController(R.id.main_fragment)
-        val fragment =
-            supportFragmentManager.findFragmentById(R.id.main_fragment) as NavHostFragment
-        val navigator = FragmentNavigator(this, supportFragmentManager, fragment.id)
-        controller.navigatorProvider.addNavigator(navigator)
-//        controller.setGraph(R.)
+        mBinding.vpMain.setFragmentAdapter(this) {
+            count(4)
+            createFragment { position ->
+                when (position) {
+                    MAIN_TAB_HOME -> HomeFragment()
+                    MAIN_TAB_ACCOUNT -> AccountFragment()
+                    MAIN_TAB_PROJECT -> ProjectFragment()
+                    MAIN_TAB_MINE -> MineFragment()
+                    else -> HomeFragment()
+                }
+            }
+        }
     }
 
 }
