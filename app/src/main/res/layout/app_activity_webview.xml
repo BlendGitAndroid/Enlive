@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.WebViewActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.blend.enlive.web.WebViewViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:bind_toolbar_title="@{viewModel.title}"
+            app:navigationIcon="@drawable/app_vector_arrow_back"
+            tools:title="标题测试" />
+
+        <View style="@style/app_dividing.horizontal" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fcv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</layout>

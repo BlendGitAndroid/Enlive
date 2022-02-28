@@ -1,4 +1,4 @@
-package com.blend.enlive.databinding
+package com.blend.base.binding_adapter
 
 import androidx.annotation.IdRes
 import androidx.databinding.BindingAdapter

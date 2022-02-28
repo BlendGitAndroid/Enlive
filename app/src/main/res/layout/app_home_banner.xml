@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.blend.enlive.home.HomeViewModel" />
+
+        <variable
+            name="item"
+            type="com.blend.enlive.entity.BannerEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?selectableItemBackground"
+        android:bind_onClick="@{viewModel.onBannerItemClick}"
+        android:bind_onClick_item="@{item}">
+
+        <ImageView
+            android:id="@+id/bannerIv"
+            android:layout_width="match_parent"
+            android:layout_height="174dp"
+            android:bind_iv_img_default="@{@drawable/app_vector_broken_image}"
+            android:bind_iv_img_url="@{item.imagePath}"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/app_vector_image" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="#60000000"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:singleLine="true"
+            android:text="@{item.title}"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/bannerIv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="小标题" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

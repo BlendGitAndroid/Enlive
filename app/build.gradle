@@ -29,8 +29,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -47,8 +47,9 @@ dependencies {
     implementation AndroidX.appcompat
     implementation Google.material
     implementation AndroidX.constraintlayout
+    implementation AndroidX.lifecyle.liveDataKtx
 
-    implementation project(path: ':base')
+    api project(path: ':base')
     implementation ThreeParty.LOTTIE
 
     testImplementation Testing.jUnit

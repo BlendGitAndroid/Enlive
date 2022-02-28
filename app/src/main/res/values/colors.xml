@@ -24,4 +24,7 @@
     <color name="app_textTheme">@color/colorPrimary</color>
 
     <color name="app_tintPrimary">@color/white</color>
+
+    <color name="app_colorDivider">#EBEBEB</color>
+
 </resources>

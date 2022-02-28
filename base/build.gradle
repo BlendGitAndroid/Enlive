@@ -56,7 +56,10 @@ dependencies {
     androidTestImplementation Testing.androidJunit
     androidTestImplementation Testing.espresso
 
-    api ThreeParty.OkHttp //rxhttp v2.2.2版本起，需要手动依赖okhttp
+    api ThreeParty.OkHttp
+    api Google.coil
+    api Google.coil_gif
+
 
 
 }
