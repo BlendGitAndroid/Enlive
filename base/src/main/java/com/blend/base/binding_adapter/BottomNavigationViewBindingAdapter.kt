@@ -12,21 +12,20 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /**
  * 为 [bnv] 设置条目选中回调[itemSelected]
+ * > [itemSelected] 传递 [Int] 类型 **itemId**，返回 [Boolean] 类型 是否消费事件
+ *
+ * > [listener] 为属性变化监听，`DataBinding` 自动实现，无需配置
  */
 @BindingAdapter("android:bind_bnv_onItemSelected", "android:bind_bnv_selectedIdAttrChanged", requireAll = false)
-fun setOnNavigationItemSelectedListener(
-    btn: BottomNavigationView,
-    itemSelected: ((Int) -> Boolean)?,
-    listener: InverseBindingListener?,
-) {
-
-    btn.setOnNavigationItemSelectedListener {
-        if (btn.selectedItemId != it.itemId) {
+fun setOnNavigationItemSelectedListener(bnv: BottomNavigationView,
+                                        itemSelected: ((Int) -> Boolean)?,
+                                        listener: InverseBindingListener?) {
+    bnv.setOnNavigationItemSelectedListener {
+        if (bnv.selectedItemId != it.itemId) {
             listener?.onChange()
         }
         itemSelected?.invoke(it.itemId) ?: true
     }
-
 }
 
 /**

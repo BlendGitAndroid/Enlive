@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewbinding.ViewBinding
+import com.blend.base.BR
 import com.blend.base.app.MVVMBlend
 import com.blend.base.common.BaseViewModel
 import com.blend.base.common.ui.config.ActivityConfig
@@ -17,7 +17,7 @@ import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
 
-abstract class BaseActivity<VM : BaseViewModel, DB : ViewBinding>(var config: ActivityConfig = ActivityConfig()) :
+abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>(var config: ActivityConfig = ActivityConfig()) :
     AppCompatActivity() {
 
     protected lateinit var mBinding: DB
@@ -28,6 +28,7 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewBinding>(var config: Ac
         super.onCreate(savedInstanceState)
         initViewDataBinding()
         lifecycle.addObserver(viewModel)
+        mBinding.setVariable(BR.viewModel, viewModel)
         //注册UI事件
         registerDefUIChange()
         initTitleBar()
