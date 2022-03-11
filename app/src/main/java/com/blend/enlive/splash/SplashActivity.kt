@@ -1,5 +1,6 @@
 package com.blend.enlive.splash
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.blend.base.common.ui.BaseActivity
@@ -19,10 +20,17 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-
+        if (!this.isTaskRoot) {
+            val mainIntent = intent
+            val action = mainIntent.action
+            if (mainIntent.hasCategory(Intent.CATEGORY_LAUNCHER) && action == Intent.ACTION_MAIN) {
+                finish()
+                return
+            }
+        }
         lifecycleScope.launch {
-            delay(SPLASH_DELAY_MS)
             ktStartActivityAndFinish(MainActivity::class)
+            delay(SPLASH_DELAY_MS)
         }
     }
 

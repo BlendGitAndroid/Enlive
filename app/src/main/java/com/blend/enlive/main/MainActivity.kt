@@ -16,6 +16,9 @@ import com.blend.enlive.project.ProjectFragment
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
+    init {
+        config.isDoubleBack = true
+    }
 
     override fun layoutId(): Int {
         return R.layout.activity_main

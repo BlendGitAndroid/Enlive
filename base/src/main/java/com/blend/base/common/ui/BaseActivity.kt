@@ -101,7 +101,7 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>(var config
     }
 
     private var mLastBackTime = 0L
-    private val INTERVAL_TIME = 800
+    private val INTERVAL_TIME = 1500
 
     open fun onBlockBackPressed(): Boolean = false
     open fun doOnBlockBackPressed() {}
@@ -112,7 +112,8 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>(var config
         } else if (config.isDoubleBack) {
             val currentTimeMillis = System.currentTimeMillis()
             if (currentTimeMillis - mLastBackTime < INTERVAL_TIME) {
-                ApplicationUtil.exitApp()
+                //退到后台
+                moveTaskToBack(true)
             } else {
                 mLastBackTime = currentTimeMillis
                 "再按一次退出".ktToastShow()
