@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="Theme.Enlive" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Enlive" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- 应用主色调，ActionBar 等默认颜色 -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <!-- 应用主要暗色调，StatusBar 默认颜色 -->

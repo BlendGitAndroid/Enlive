@@ -1,6 +1,7 @@
 package com.blend.base.common.ui
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -11,6 +12,7 @@ import com.blend.base.common.BaseViewModel
 import com.blend.base.common.ui.config.ActivityConfig
 import com.blend.base.kt.ktToastShow
 import com.blend.base.utils.ApplicationUtil
+import com.blend.base.utils.BarUtils
 import com.blend.base.utils.ToastUtil
 import com.blend.base.weiget.BaseProgressDialog
 import java.lang.reflect.ParameterizedType
@@ -41,6 +43,16 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>(var config
 
     fun initTitleBar() {
 
+    }
+
+    /**
+     * 设置activity 全屏，view 不为空时，为 view 增加 MarginTop 为状态栏高度
+     */
+    fun isFullScreen(view: View? = null) {
+        BarUtils.transparentStatusBar(this)
+        view?.let {
+            BarUtils.addMarginTopEqualStatusBarHeight(view)
+        }
     }
 
     //布局解析

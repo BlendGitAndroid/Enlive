@@ -2,6 +2,7 @@ package com.blend.enlive.main
 
 import android.os.Bundle
 import com.blend.base.common.ui.BaseActivity
+import com.blend.base.utils.BarUtils
 import com.blend.enlive.R
 import com.blend.enlive.account.AccountFragment
 import com.blend.enlive.adapter.setFragmentAdapter
@@ -25,6 +26,8 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
+        BarUtils.setStatusBarLightMode(this, false)
+        isFullScreen()
         mBinding.vpMain.setFragmentAdapter(this) {
             count(4)
             createFragment { position ->
