@@ -27,6 +27,15 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
         viewModel.getHomeBannerList()
 
+        viewModel.run {
+            bannerData.observe(this@HomeFragment, {
+                // 更新 Banner 列表
+                mBannerAdapter.refresh(it)
+                // 设置 Banner 数量并开启轮播
+                bannerCount = it.size
+            })
+        }
+
     }
 
 

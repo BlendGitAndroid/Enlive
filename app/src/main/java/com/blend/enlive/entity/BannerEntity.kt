@@ -1,6 +1,6 @@
 package com.blend.enlive.entity
 
-import java.io.Serializable
+import kotlinx.serialization.Serializable
 
 /**
  * 首页 Banner 数据实体类
@@ -15,6 +15,7 @@ import java.io.Serializable
  * @param url 跳转链接
  */
 
+@Serializable
 data class BannerEntity(
     val desc: String? = "",
     val id: String? = "",
@@ -24,4 +25,4 @@ data class BannerEntity(
     val title: String? = "",
     val type: String? = "",
     val url: String? = "",
-) : Serializable
+)

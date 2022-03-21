@@ -1,7 +1,9 @@
 package com.blend.enlive.home
 
+import android.util.Log
 import android.view.MotionEvent
 import androidx.databinding.ObservableInt
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.blend.base.common.BaseViewModel
 import com.blend.base.event.SingleLiveEvent
@@ -12,6 +14,8 @@ import kotlinx.coroutines.*
 
 class HomeViewModel : BaseViewModel() {
 
+    val mRepository = HomeRepository()
+
     //banner轮播
     private var carouselJob: Job? = null
 
@@ -20,6 +24,9 @@ class HomeViewModel : BaseViewModel() {
 
     //banner预加载数量
     val bannerLimit: ObservableInt = ObservableInt()
+
+    val bannerData: MutableLiveData<ArrayList<BannerEntity>> = MutableLiveData()
+
 
     /** 跳转网页数据 */
     val jumpWebViewData = SingleLiveEvent<WebViewActivity.ActionModel>()
@@ -77,6 +84,11 @@ class HomeViewModel : BaseViewModel() {
     //获取banner的列表
     fun getHomeBannerList() {
         rxLaunchUI({
+            mRepository.getHomeBannerList().data.also {
+                Log.e("getHomeBannerList: ", it.toString())
+                TODO("postValue，为什么")
+                bannerData.postValue(it)
+            }
 
         })
 
