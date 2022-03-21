@@ -3,6 +3,9 @@ plugins {
     id 'kotlin-android'
     id 'com.blend.version'
     id 'kotlin-kapt'
+    //增加序列化插件
+    id "kotlin-parcelize"
+    id "org.jetbrains.kotlin.plugin.serialization" version "1.4.21"
 }
 
 android {

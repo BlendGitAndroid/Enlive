@@ -3,7 +3,15 @@ object ThreeParty {
     const val quicklogin = "io.github.yidun:quicklogin:3.0.6.5"
     const val XPopUp = "com.lxj:xpopup:2.2.23"
     const val Okio = "com.squareup.okio:okio:3.0.0-alpha.4"
+
     const val OkHttp = "com.squareup.okhttp3:okhttp:4.9.0"
+
+    const val Retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
+    const val RetrofitConverterGson = "com.squareup.retrofit2:converter-gson:2.9.0"
+    const val RetrofitConverterMoshi = "com.squareup.retrofit2:converter-moshi:2.9.0"
+    const val RetrofitConverterKtx =
+        "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
+
     const val fastJson = "com.alibaba:fastjson:1.2.75"
     const val permissionSupportByGuoLin = "com.permissionx.guolindev:permission-support:1.4.0"
     const val luBan = "top.zibin:Luban:1.1.8"
