@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 
 
-public class RxHttpManager {
+public class HttpManager {
 
     /**
      * OkHttp 初始化
@@ -20,7 +20,7 @@ public class RxHttpManager {
      */
     public static OkHttpClient init(Application context) {
         final int timeout = 20;
-        File file = new File(context.getExternalCacheDir(), "RxHttpCookie");
+        File file = new File(context.getExternalCacheDir(), "HttpCookie");
         OkHttpClient client = null;
         HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory();
         client = new OkHttpClient.Builder()
@@ -29,7 +29,7 @@ public class RxHttpManager {
                 .writeTimeout(timeout, TimeUnit.SECONDS)
                 .callTimeout(timeout, TimeUnit.SECONDS)
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
-                .cookieJar(new BlendCookieStore(file))
+                // .cookieJar(new BlendCookieStore(file))
                 .build();
         return client;
     }

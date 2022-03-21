@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import com.blend.base.R
-import com.blend.enlive.constants.DEFAULT_CLICK_THROTTLE_MS
+import com.blend.base.constants.DEFAULT_CLICK_THROTTLE_MS
 
 /** 判断并返回当前 [View] 是否被覆盖 */
 fun View.isViewCovered(): Boolean {

@@ -3,7 +3,7 @@ package com.blend.base.binding_adapter
 import android.view.View
 import androidx.databinding.BindingAdapter
 import com.blend.base.kt.setOnThrottleClickListener
-import com.blend.enlive.constants.DEFAULT_CLICK_THROTTLE_MS
+import com.blend.base.constants.DEFAULT_CLICK_THROTTLE_MS
 
 
 /** 给 [v] 设置点击事件 [click]，传递数据 [item]，并设置重复点击拦截间隔时间 [throttle]，[throttle] 默认 [DEFAULT_CLICK_THROTTLE_MS] */

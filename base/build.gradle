@@ -56,10 +56,13 @@ dependencies {
     androidTestImplementation Testing.androidJunit
     androidTestImplementation Testing.espresso
 
+    api Kotlin.kotlin_serialization
+
     api ThreeParty.OkHttp
+    api ThreeParty.Retrofit
+    api ThreeParty.RetrofitConverterKtx
+
     api Google.coil
     api Google.coil_gif
-
-
 
 }

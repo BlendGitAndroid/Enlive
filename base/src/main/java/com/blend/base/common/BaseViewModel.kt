@@ -5,15 +5,14 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.viewModelScope
 import com.blend.base.app.BaseConstant
+import com.blend.base.constants.REQUEST_TIMEOUT
 import com.blend.base.event.SingleLiveEvent
 import com.blend.base.kt.ktToastShow
 import com.blend.base.kt.show
 import com.blend.base.net.BusinessException
 import com.blend.base.net.TokenTimeOutException
 import com.blend.base.utils.ApplicationUtil
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import org.json.JSONException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
@@ -34,8 +33,8 @@ abstract class BaseViewModel : AndroidViewModel(ApplicationUtil.getApp()), Lifec
      * showToast: 是否在异常的时候弹出Toast
      * showLoading: 是否显示Loading
      */
-    fun rxLaunchUI(
-        block: suspend CoroutineScope.() -> Unit,
+    fun <T> rxLaunchUI(
+        block: suspend CoroutineScope.() -> T,
         errorBlock: ((Throwable) -> Unit)? = null,
         showToast: Boolean = false,
         showLoading: Boolean = false,
@@ -47,7 +46,7 @@ abstract class BaseViewModel : AndroidViewModel(ApplicationUtil.getApp()), Lifec
                 if (showLoading) {  //展示loading
                     defUI.showLoading.call()
                 }
-                block()
+                realRequest(block)
             } catch (e: Throwable) {
                 e.printStackTrace()
                 if (isActive) {
@@ -62,6 +61,14 @@ abstract class BaseViewModel : AndroidViewModel(ApplicationUtil.getApp()), Lifec
                     defUI.dismissLoading.call()
                 }
                 finalBlock?.invoke()
+            }
+        }
+    }
+
+    private suspend fun <T> realRequest(block: suspend CoroutineScope.() -> T): T {
+        return withContext(Dispatchers.IO) {
+            withTimeout(REQUEST_TIMEOUT) {
+                block.invoke(this)
             }
         }
     }
