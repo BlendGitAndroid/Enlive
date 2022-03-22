@@ -9,7 +9,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewbinding.ViewBinding
+import com.blend.base.BR
 import com.blend.base.app.MVVMBlend
 import com.blend.base.common.BaseViewModel
 import com.blend.base.common.ui.config.FragmentConfig
@@ -18,7 +18,7 @@ import com.blend.base.weiget.BaseProgressDialog
 import java.lang.reflect.ParameterizedType
 
 
-abstract class BaseFragment<VM : BaseViewModel, DB : ViewBinding>(val config: FragmentConfig = FragmentConfig()) :
+abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding>(val config: FragmentConfig = FragmentConfig()) :
     Fragment() {
 
     protected lateinit var viewModel: VM
@@ -44,6 +44,7 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewBinding>(val config: Fr
         super.onViewCreated(view, savedInstanceState)
         onVisible()
         onCreateViewModel()
+        mBinding.setVariable(BR.viewModel, viewModel)
         lifecycle.addObserver(viewModel)
         registerDefUIChange()
         initView(savedInstanceState)

@@ -11,7 +11,6 @@ import com.blend.base.app.MVVMBlend
 import com.blend.base.common.BaseViewModel
 import com.blend.base.common.ui.config.ActivityConfig
 import com.blend.base.kt.ktToastShow
-import com.blend.base.utils.ApplicationUtil
 import com.blend.base.utils.BarUtils
 import com.blend.base.utils.ToastUtil
 import com.blend.base.weiget.BaseProgressDialog

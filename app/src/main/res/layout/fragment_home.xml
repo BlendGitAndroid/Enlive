@@ -4,7 +4,7 @@
     <data>
 
         <variable
-            name="viewModule"
+            name="viewModel"
             type="com.blend.enlive.home.HomeViewModel" />
     </data>
 
@@ -53,9 +53,9 @@
             android:layout_width="0dp"
             android:layout_height="174dp"
             android:layout_marginTop="20dp"
-            android:bind_vp2_currentItem="@={viewModule.bannerIndex}"
-            android:bind_vp2_offscreenPageLimit="@{viewModule.bannerLimit}"
-            android:bind_vp2_onTouch="@{viewModule.onBannerTouch}"
+            android:bind_vp2_currentItem="@={viewModel.bannerIndex}"
+            android:bind_vp2_offscreenPageLimit="@{viewModel.bannerLimit}"
+            android:bind_vp2_onTouch="@{viewModel.onBannerTouch}"
             android:bind_vp2_smoothScroll="@{true}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
