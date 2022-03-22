@@ -86,7 +86,7 @@ class HomeViewModel : BaseViewModel() {
         rxLaunchUI({
             mRepository.getHomeBannerList().data.also {
                 Log.e("getHomeBannerList: ", it.toString())
-                TODO("postValue，为什么")
+                //TODO("postValue，为什么")
                 bannerData.postValue(it)
             }
 
