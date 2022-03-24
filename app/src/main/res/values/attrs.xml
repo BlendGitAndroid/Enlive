@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BlendRefreshHeader">
+        <attr name="header_paddingTop" format="dimension" />
+        <attr name="header_paddingBottom" format="dimension" />
+    </declare-styleable>
+
+</resources>
