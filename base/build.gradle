@@ -57,6 +57,10 @@ dependencies {
     androidTestImplementation Testing.espresso
 
     api Kotlin.kotlin_serialization
+    api Kotlin.kotlin_coroutines_android
+    api Kotlin.kotlin_coroutines_core
+    api Kotlin.kotlinStdlib
+
 
     api ThreeParty.OkHttp
     api ThreeParty.Retrofit

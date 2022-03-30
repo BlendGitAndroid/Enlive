@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.blend.base.common.BaseViewModel
 import com.blend.base.event.SingleLiveEvent
+import com.blend.enlive.entity.ArticleListEntity
 import com.blend.enlive.entity.BannerEntity
 import com.blend.enlive.web.WebViewActivity
 import kotlinx.coroutines.*
@@ -27,6 +28,7 @@ class HomeViewModel : BaseViewModel() {
 
     val bannerData: MutableLiveData<ArrayList<BannerEntity>> = MutableLiveData()
 
+    val articleListData : MutableLiveData<ArticleListEntity> = MutableLiveData()
 
     /** 跳转网页数据 */
     val jumpWebViewData = SingleLiveEvent<WebViewActivity.ActionModel>()
@@ -91,13 +93,28 @@ class HomeViewModel : BaseViewModel() {
             }
 
         })
+    }
 
+    //获取文章列表
+    fun getHomeArticleList(pageNum : Int) {
+        rxLaunchUI({
+            mRepository.getHomeArticleList(pageNum).data.also {
+                Log.e("getHomeArticleList: ", it.toString())
+                articleListData.postValue(it)
+            }
+        })
     }
 
     /** Banner 列表条目点击 */
     val onBannerItemClick: (BannerEntity) -> Unit = { item ->
         jumpWebViewData.value =
             WebViewActivity.ActionModel(item.id.orEmpty(), item.title.orEmpty(), item.url.orEmpty())
+    }
+
+
+    /** 文章列表点击事件 */
+    val articleListItemViewModel: HomeArticleListItemViewModel by lazy {
+        HomeArticleListItemViewModel(this, jumpWebViewData)
     }
 
 }

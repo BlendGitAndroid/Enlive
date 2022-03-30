@@ -1,6 +1,7 @@
 package com.blend.enlive.home
 
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.blend.base.common.ui.BaseFragment
 import com.blend.base.recyclerview.simple.SimpleRvAdapter
 import com.blend.base.utils.BarUtils
@@ -11,7 +12,11 @@ import com.blend.enlive.entity.BannerEntity
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
+    //Banner适配器
     private val mBannerAdapter = SimpleRvAdapter<BannerEntity>(R.layout.app_home_banner)
+
+    //文章列表适配器
+    private val mArticlesAdapter = ArticleListRvAdapter()
 
     override fun layoutId(): Int {
         return R.layout.fragment_home
@@ -21,11 +26,13 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         //设置状态栏高度
         BarUtils.addMarginTopEqualStatusBarHeight(mBinding.homeTopTv)
-        mBinding.vpHomeBanner.adapter = mBannerAdapter.also { adapter ->
+        mBinding.homeVpBanner.adapter = mBannerAdapter.also { adapter ->
             adapter.viewModel = viewModel
         }
 
         viewModel.getHomeBannerList()
+
+        viewModel.getHomeArticleList(0)
 
         viewModel.run {
             bannerData.observe(this@HomeFragment, {
@@ -34,6 +41,18 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                 // 设置 Banner 数量并开启轮播
                 bannerCount = it.size
             })
+
+            articleListData.observe(this@HomeFragment, {
+                mArticlesAdapter.submitList(it.datas)
+            })
+        }
+
+        mBinding.homeRvArticles.let {
+            it.layoutManager = LinearLayoutManager(requireContext())
+            it.adapter = mArticlesAdapter.also {
+                it.viewModel = viewModel.articleListItemViewModel
+//                it.setEmptyView(R.layout.app_home_articles_empty)
+            }
         }
 
     }

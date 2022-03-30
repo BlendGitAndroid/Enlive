@@ -49,7 +49,7 @@
 
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vpHomeBanner"
+            android:id="@+id/homeVpBanner"
             android:layout_width="0dp"
             android:layout_height="174dp"
             android:layout_marginTop="20dp"
@@ -62,18 +62,18 @@
             app:layout_constraintTop_toBottomOf="@+id/homeTopTv" />
 
         <com.scwang.smart.refresh.layout.SmartRefreshLayout
-            android:id="@+id/srLRefresh"
+            android:id="@+id/homeSrLRefresh"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vpHomeBanner">
+            app:layout_constraintTop_toBottomOf="@id/homeVpBanner">
 
             <com.blend.enlive.ui.BlendRefreshHeader
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_articles"
+                android:id="@+id/homeRvArticles"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
