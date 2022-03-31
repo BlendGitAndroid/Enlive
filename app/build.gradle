@@ -55,12 +55,6 @@ dependencies {
     api project(path: ':base')
     implementation ThreeParty.LOTTIE
 
-    //刷新布局
-    implementation ThreeParty.smartRefresh.kernel
-    implementation ThreeParty.smartRefresh.header
-    implementation ThreeParty.smartRefresh.footer
-    implementation ThreeParty.smartRefresh.classicHeader
-
     testImplementation Testing.jUnit
     androidTestImplementation Testing.androidJunit
     androidTestImplementation Testing.espresso

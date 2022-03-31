@@ -2,6 +2,7 @@ package com.blend.enlive.home
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.blend.base.binding_adapter.SmartRefreshState
 import com.blend.base.common.ui.BaseFragment
 import com.blend.base.recyclerview.simple.SimpleRvAdapter
 import com.blend.base.utils.BarUtils
@@ -22,7 +23,6 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         return R.layout.fragment_home
     }
 
-
     override fun initView(savedInstanceState: Bundle?) {
         //设置状态栏高度
         BarUtils.addMarginTopEqualStatusBarHeight(mBinding.homeTopTv)
@@ -31,6 +31,8 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         }
 
         viewModel.getHomeBannerList()
+
+        viewModel.refreshing.value = SmartRefreshState(true)
 
         viewModel.getHomeArticleList(0)
 
@@ -43,7 +45,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             })
 
             articleListData.observe(this@HomeFragment, {
-                mArticlesAdapter.submitList(it.datas)
+                mArticlesAdapter.submitList(it)
             })
         }
 

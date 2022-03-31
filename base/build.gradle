@@ -69,4 +69,11 @@ dependencies {
     api Google.coil
     api Google.coil_gif
 
+
+    //刷新布局
+    api ThreeParty.smartRefresh.kernel
+    api ThreeParty.smartRefresh.header
+    api ThreeParty.smartRefresh.footer
+    api ThreeParty.smartRefresh.classicHeader
+
 }
