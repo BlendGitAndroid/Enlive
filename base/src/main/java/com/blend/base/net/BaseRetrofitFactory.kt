@@ -11,6 +11,7 @@ abstract class BaseRetrofitFactory {
 
     private val okhttpClient = HttpManager.init(ApplicationUtil.getApp())
 
+    //TODO addConverterFactory 的实现  cookie的实现
     fun <T> getService(serviceClass: Class<T>, hostUrl: String): T {
         val retrofit = Retrofit.Builder()
             .baseUrl(hostUrl)

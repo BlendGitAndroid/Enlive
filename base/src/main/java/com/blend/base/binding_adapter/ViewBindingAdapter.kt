@@ -17,7 +17,7 @@ fun <T> setViewOnClick(v: View, click: ViewItemClickListener<T>?, item: T, throt
     v.setOnThrottleClickListener({ click.onItemClick(item) }, interval)
 }
 
-
+//TODO 这个setViewOnClick 是真正的实现
 /** 给 [v] 设置点击事件 [listener] 并设置重复点击拦截间隔时间 [throttle]，[throttle] 默认 [DEFAULT_CLICK_THROTTLE_MS] */
 @BindingAdapter("android:bind_onClick", "android:bind_onClick_throttle", requireAll = false)
 fun setViewOnClick(v: View, listener: ViewClickListener?, throttle: Long?) {
