@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="viewModel"
+            type="com.blend.enlive.home.HomeArticleListItemViewModel" />
+
+        <variable
             name="item"
             type="com.blend.enlive.entity.ArticleEntity" />
     </data>
@@ -22,6 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/app_selector_default_ripple"
+            android:bind_onClick="@{viewModel.onArticleItemClick}"
+            android:bind_onClick_item="@{item}"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp">
 

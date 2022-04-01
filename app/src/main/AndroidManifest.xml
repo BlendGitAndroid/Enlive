@@ -32,6 +32,10 @@
             android:name=".main.MainActivity"
             android:configChanges="screenSize"
             android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".web.WebViewActivity"
+            android:configChanges="screenSize"
+            android:screenOrientation="fullSensor" />
 
     </application>
 

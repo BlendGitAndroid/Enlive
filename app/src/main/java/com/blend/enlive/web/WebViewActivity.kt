@@ -1,11 +1,17 @@
 package com.blend.enlive.web
 
+import android.content.Context
 import android.os.Bundle
-import android.os.Parcel
 import android.os.Parcelable
+import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.fragment.app.commit
 import com.blend.base.common.ui.BaseActivity
+import com.blend.base.kt.startTargetActivity
+import com.blend.base.utils.StatusBarUtils
 import com.blend.enlive.R
 import com.blend.enlive.databinding.AppActivityWebviewBinding
+import kotlinx.parcelize.Parcelize
 
 
 class WebViewActivity : BaseActivity<WebViewViewModel, AppActivityWebviewBinding>() {
@@ -13,11 +19,34 @@ class WebViewActivity : BaseActivity<WebViewViewModel, AppActivityWebviewBinding
 
     override fun layoutId(): Int = R.layout.app_activity_webview
 
-    override fun initView(savedInstanceState: Bundle?) {
-        TODO("Not yet implemented")
+    /** WebView Fragment 对象 */
+    private val webViewFragment: WebViewFragment by lazy {
+        WebViewFragment()
     }
 
+    override fun initView(savedInstanceState: Bundle?) {
+        StatusBarUtils.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary))
+        // 获取网页数据
+        intent.getParcelableExtra<ActionModel>(WEBVIEW_ACTION_PARCELABLE)?.let { data ->
+            viewModel.webData.value = data
+        }
 
+        // 加载 Fragment
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.webViewFcv, webViewFragment)
+        }
+
+        viewModel.defClose.observe(this, {
+            finish()
+        })
+    }
+
+    override fun onBackPressed() {
+        if (!webViewFragment.canGoBack()) {
+            super.onBackPressed()
+        }
+    }
 
 
     /**
@@ -27,47 +56,23 @@ class WebViewActivity : BaseActivity<WebViewViewModel, AppActivityWebviewBinding
      * @param title 标题
      * @param url 打开链接
      */
-
+    @Parcelize
     data class ActionModel(
         val id: String?,
         val title: String?,
         val url: String?,
-    ) : Parcelable {
-        constructor(parcel: Parcel) : this(
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString()) {
-        }
-
-        override fun writeToParcel(parcel: Parcel, flags: Int) {
-            parcel.writeString(id)
-            parcel.writeString(title)
-            parcel.writeString(url)
-        }
-
-        override fun describeContents(): Int {
-            return 0
-        }
-
-        companion object CREATOR : Parcelable.Creator<ActionModel> {
-            override fun createFromParcel(parcel: Parcel): ActionModel {
-                return ActionModel(parcel)
-            }
-
-            override fun newArray(size: Int): Array<ActionModel?> {
-                return arrayOfNulls(size)
-            }
-        }
-    }
+    ) : Parcelable
 
     companion object {
 
-//        /** 使用 [context] 打开 [WebViewActivity] 界面，传递参数网页数据[webData] */
-//        fun actionStart(context: Context, webData: ActionModel?) {
-//            context.startTargetActivity<WebViewActivity>(bundleOf(
-//                ACTION_PARCELABLE to webData
-//            ))
-//        }
+        const val WEBVIEW_ACTION_PARCELABLE = "WEBVIEW_ACTION_PARCELABLE"
+
+        /** 使用 [context] 打开 [WebViewActivity] 界面，传递参数网页数据[webData] */
+        fun actionStart(context: Context, webData: ActionModel?) {
+            context.startTargetActivity<WebViewActivity>(bundleOf(
+                WEBVIEW_ACTION_PARCELABLE to webData
+            ))
+        }
     }
 
 }

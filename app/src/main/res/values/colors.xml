@@ -29,4 +29,6 @@
 
     <color name="app_colorDivider">#EBEBEB</color>
 
+    <color name="app_60000000">#60000000</color>
+
 </resources>

@@ -100,7 +100,8 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding>(val config
             val argument = type.actualTypeArguments[0]
             val tClass = argument as? Class<VM> ?: BaseViewModel::class.java
             viewModel =
-                ViewModelProvider(viewModelStore, defaultViewModelProviderFactory).get(tClass) as VM
+                ViewModelProvider(requireActivity(),
+                    defaultViewModelProviderFactory).get(tClass) as VM
         }
     }
 

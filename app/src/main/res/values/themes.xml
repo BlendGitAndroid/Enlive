@@ -12,6 +12,25 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Toolbar 样式 -->
+    <style name="Theme.Toolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:elevation">4dp</item>
+        <!-- 字体大小 -->
+        <item name="android:textSize">14sp</item>
+        <!--ToolBar 字体颜色 -->
+        <item name="titleTextColor">@color/white</item>
+        <!-- 溢出菜单图标颜色 -->
+        <item name="colorControlNormal">@color/app_tintPrimary</item>
+        <!-- 右侧溢出菜单图标自定义 -->
+        <!--        <item name="actionOverflowButtonStyle">@style/ActionButton.Overflow</item>-->
+        <!-- 是否覆盖锚点，默认为true，即盖住 Toolbar -->
+        <item name="overlapAnchor">false</item>
+        <!-- 弹出层垂直方向上的偏移，即在竖直方向上距离Toolbar的距离，值为负则会盖住Toolbar -->
+        <item name="android:dropDownVerticalOffset">0dp</item>
+        <!-- 弹出层水平方向上的偏移，即距离屏幕左边的距离，负值会导致右边出现空隙 -->
+        <item name="android:dropDownHorizontalOffset">0dp</item>
+    </style>
+
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/bg_splash</item>
         <item name="android:windowFullscreen">true</item>

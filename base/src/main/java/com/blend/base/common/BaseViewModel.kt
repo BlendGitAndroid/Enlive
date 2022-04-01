@@ -3,6 +3,7 @@ package com.blend.base.common
 import android.os.Message
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.blend.base.app.BaseConstant
 import com.blend.base.constants.REQUEST_TIMEOUT
@@ -24,6 +25,8 @@ import javax.net.ssl.SSLException
 abstract class BaseViewModel : AndroidViewModel(ApplicationUtil.getApp()), LifecycleObserver {
 
     val defUI: UIChange by lazy { UIChange() }
+    val defClose = MutableLiveData<Boolean>()
+
 
     /**
      * 进行网络请求，界面销毁时自动取消

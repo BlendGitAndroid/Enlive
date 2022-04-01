@@ -9,6 +9,7 @@ import com.blend.base.utils.BarUtils
 import com.blend.enlive.R
 import com.blend.enlive.databinding.FragmentHomeBinding
 import com.blend.enlive.entity.BannerEntity
+import com.blend.enlive.web.WebViewActivity
 
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
@@ -47,12 +48,16 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             articleListData.observe(this@HomeFragment, {
                 mArticlesAdapter.submitList(it)
             })
+
+            jumpWebViewData.observe(this@HomeFragment, {
+                WebViewActivity.actionStart(requireContext(), it)
+            })
         }
 
         mBinding.homeRvArticles.let {
             it.layoutManager = LinearLayoutManager(requireContext())
-            it.adapter = mArticlesAdapter.also {
-                it.viewModel = viewModel.articleListItemViewModel
+            it.adapter = mArticlesAdapter.also { adapter ->
+                adapter.viewModel = viewModel.articleListItemViewModel
 //                it.setEmptyView(R.layout.app_home_articles_empty)
             }
         }

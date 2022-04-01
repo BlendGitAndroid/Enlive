@@ -17,18 +17,20 @@
         android:orientation="vertical">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/webViewToolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
+            android:bind_toolbar_navigationClick="@{viewModel.onNavigationClick}"
             android:bind_toolbar_title="@{viewModel.title}"
             app:navigationIcon="@drawable/app_vector_arrow_back"
+            app:theme="@style/Theme.Toolbar"
             tools:title="标题测试" />
 
         <View style="@style/app_dividing.horizontal" />
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fcv"
+            android:id="@+id/webViewFcv"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

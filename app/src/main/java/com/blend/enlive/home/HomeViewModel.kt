@@ -164,7 +164,7 @@ class HomeViewModel : BaseViewModel() {
 
     /** 文章列表点击事件 */
     val articleListItemViewModel: HomeArticleListItemViewModel by lazy {
-        HomeArticleListItemViewModel(this, jumpWebViewData)
+        HomeArticleListItemViewModel(jumpWebViewData)
     }
 
 }
