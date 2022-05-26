@@ -25,6 +25,8 @@
             <option value="$PROJECT_DIR$/base" />
             <option value="$PROJECT_DIR$/launcher" />
             <option value="$PROJECT_DIR$/version" />
+            <option value="$PROJECT_DIR$/../enlive_flutter_module" />
+            <option value="$PROJECT_DIR$/../enlive_flutter_module/.android/Flutter" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -58,4 +58,7 @@ dependencies {
     testImplementation Testing.jUnit
     androidTestImplementation Testing.androidJunit
     androidTestImplementation Testing.espresso
+
+    //Flutter项目
+    implementation project(':flutter')
 }
