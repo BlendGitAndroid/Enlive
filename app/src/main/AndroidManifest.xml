@@ -38,6 +38,9 @@
             android:configChanges="screenSize"
             android:screenOrientation="fullSensor" />
 
+        <service
+            android:name=".im.MessengerService"
+            android:process=":core" />
     </application>
 
 </manifest>
