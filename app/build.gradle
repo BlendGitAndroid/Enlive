@@ -5,7 +5,7 @@ plugins {
     id 'kotlin-kapt'
     //增加序列化插件
     id "kotlin-parcelize"
-    id "org.jetbrains.kotlin.plugin.serialization" version "1.4.21"
+    id "org.jetbrains.kotlin.plugin.serialization" version "1.5.0"
 }
 
 android {
@@ -58,7 +58,4 @@ dependencies {
     testImplementation Testing.jUnit
     androidTestImplementation Testing.androidJunit
     androidTestImplementation Testing.espresso
-
-    //Flutter项目
-    implementation project(':flutter')
 }

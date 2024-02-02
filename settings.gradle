@@ -3,12 +3,3 @@ include ':app'
 include ':base'
 include ':launcher'
 includeBuild("version")
-//Flutter项目
-setBinding(new Binding([gradle: this]))
-evaluate(new File(
-        settingsDir.parentFile,
-        'enlive_flutter_module/.android/include_flutter.groovy'
-))
-
-include ':enlive_flutter_module'
-project(':enlive_flutter_module').projectDir = new File('../enlive_flutter_module')

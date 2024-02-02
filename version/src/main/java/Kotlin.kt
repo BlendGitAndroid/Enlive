@@ -1,5 +1,5 @@
 object Kotlin {
-    const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:1.4.21"
+    const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:1.5.0"
 
     /**
      * kotlin Json 序列化
